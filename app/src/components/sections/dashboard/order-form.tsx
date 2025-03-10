@@ -33,6 +33,8 @@ export default function OrderForm({ market }: OrderFormProps) {
     market.startsWith("BTC") ? 65000 : market.startsWith("ETH") ? 3500 : market.startsWith("SOL") ? 150 : 100,
   )
 
+  console.log(setMarketPrice(100))
+
   // Calculate estimated total
   const total =
     price && amount

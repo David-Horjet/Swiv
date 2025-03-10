@@ -41,8 +41,7 @@ export default function HeroSection() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
           >
-            Experience lightning-fast execution, ultra-low fees, and deep liquidity on Sonic's most advanced trading
-            platform.
+            {"Experience lightning-fast execution, ultra-low fees, and deep liquidity on Sonic's most advanced trading platform."}
           </motion.p>
 
           <motion.div

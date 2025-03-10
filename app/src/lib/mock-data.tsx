@@ -9,27 +9,27 @@ import type {
   } from "@/types/history"
   
   // Helper to generate random date within a timeframe
-  const getRandomDate = (timeframe: "day" | "week" | "month" | "year"): Date => {
-    const now = new Date()
-    const pastDate = new Date()
+  // const getRandomDate = (timeframe: "day" | "week" | "month" | "year"): Date => {
+  //   const now = new Date()
+  //   const pastDate = new Date()
   
-    switch (timeframe) {
-      case "day":
-        pastDate.setHours(now.getHours() - 24)
-        break
-      case "week":
-        pastDate.setDate(now.getDate() - 7)
-        break
-      case "month":
-        pastDate.setMonth(now.getMonth() - 1)
-        break
-      case "year":
-        pastDate.setFullYear(now.getFullYear() - 1)
-        break
-    }
+  //   switch (timeframe) {
+  //     case "day":
+  //       pastDate.setHours(now.getHours() - 24)
+  //       break
+  //     case "week":
+  //       pastDate.setDate(now.getDate() - 7)
+  //       break
+  //     case "month":
+  //       pastDate.setMonth(now.getMonth() - 1)
+  //       break
+  //     case "year":
+  //       pastDate.setFullYear(now.getFullYear() - 1)
+  //       break
+  //   }
   
-    return new Date(pastDate.getTime() + Math.random() * (now.getTime() - pastDate.getTime()))
-  }
+  //   return new Date(pastDate.getTime() + Math.random() * (now.getTime() - pastDate.getTime()))
+  // }
   
   // Generate mock trade history data
   export const generateTradeHistory = (count: number): TradeHistoryItem[] => {

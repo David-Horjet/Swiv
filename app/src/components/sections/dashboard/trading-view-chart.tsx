@@ -15,25 +15,6 @@ declare global {
 export default function TradingViewChart({ symbol }: TradingViewChartProps) {
   const containerRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    // Load TradingView widget script
-    const script = document.createElement("script")
-    script.src = "https://s3.tradingview.com/tv.js"
-    script.async = true
-    script.onload = initializeWidget
-    document.head.appendChild(script)
-
-    return () => {
-      document.head.removeChild(script)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (window.TradingView && containerRef.current) {
-      initializeWidget()
-    }
-  }, [symbol])
-
   const initializeWidget = () => {
     if (!window.TradingView || !containerRef.current) return
 
@@ -59,6 +40,25 @@ export default function TradingViewChart({ symbol }: TradingViewChartProps) {
       enabled_features: ["use_localstorage_for_settings"],
     })
   }
+
+  useEffect(() => {
+    // Load TradingView widget script
+    const script = document.createElement("script")
+    script.src = "https://s3.tradingview.com/tv.js"
+    script.async = true
+    script.onload = initializeWidget
+    document.head.appendChild(script)
+
+    return () => {
+      document.head.removeChild(script)
+    }
+  }, [initializeWidget])
+
+  useEffect(() => {
+    if (window.TradingView && containerRef.current) {
+      initializeWidget()
+    }
+  }, [symbol, initializeWidget])
 
   return (
     <div className="w-full h-full min-h-[400px] bg-gray-900">

@@ -23,7 +23,7 @@ export default function TestimonialCard({ quote, author, role, delay }: Testimon
           <span key={star}>★</span>
         ))}
       </div>
-      <p className="text-gray-300 mb-6">"{quote}"</p>
+      <p className="text-gray-300 mb-6">{`"${quote}"`}</p>
       <div>
         <div className="font-medium">{author}</div>
         <div className="text-sm text-gray-400">{role}</div>
